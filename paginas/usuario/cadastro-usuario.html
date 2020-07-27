@@ -5,8 +5,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="../../style/theme.css" />
-  <script type="module" src="../../services/app.js"></script>
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <script src="../../services/app.js"  type="module"></script>
   <title>Cadastro de Usuário</title>
 </head>
 
@@ -32,7 +32,7 @@
         <h2 class="subtitulo">Informações Pessoais</h2>
         <div class="input-container">
           <label class="label" for="dataNascimento">Data de Nascimento <span class="info">(Necessário)</span></label>
-          <input class="input" min="1900-01-01" required type="date" name="dataNascimento" id="dataNascimento" />
+          <input class="input" min="1900-01-01" required type="date" name="dataNascimento" id="dataNascimento" data-tipo="dataNascimento"/>
         </div>
         <div class="input-container">
           <label class="label" for="cpf">CPF <span class="info">(Necessário)</span></label>

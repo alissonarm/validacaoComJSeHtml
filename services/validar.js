@@ -1,8 +1,14 @@
 
 import { validarDataNascimento } from "./validarDataNascimento.js";
+import { validarCPF} from "./validarCPF.js";
 
 const retornarMensagemDeErro = (tipo, validity) => {
-    const tiposDeErro = ["valueMissing", "typeMismatch", "tooShort", "rangeUnderflow", "customError"];
+    const tiposDeErro = [
+        "valueMissing", 
+        "typeMismatch", 
+        "tooShort", 
+        "rangeUnderflow", 
+        "customError"];
     let mensagemDeErro = ""; 
 
     const mensagensDeErro = {
@@ -21,6 +27,7 @@ const retornarMensagemDeErro = (tipo, validity) => {
         },
         cpf: {
             valueMissing: "O CPF é necessário",
+            customError:"Este não é um CPF válido"
         },
         rg: {
             valueMissing: "O RG é necessário",
@@ -40,7 +47,7 @@ const retornarMensagemDeErro = (tipo, validity) => {
 
     };
     tiposDeErro.forEach(erro => {
-        console.log(`tipo: ${tipo} erro: ${erro} msg ${mensagensDeErro[tipo][erro]}` )        
+        // console.log(`tipo: ${tipo} erro: ${erro} msg ${mensagensDeErro[tipo][erro]}` )        
         if(validity[erro]) {
              mensagemDeErro = mensagensDeErro[tipo][erro];
        }
@@ -61,7 +68,8 @@ export const validarInput = (input, adicionarErro = true) => {
     const elementoEhValido = input.validity.valid;
     const tipo = input.dataset.tipo;
     const validadoresEspecificos = {
-        dataNascimento: input => validarDataNascimento(input)
+        dataNascimento: input => validarDataNascimento(input),
+        cpf: input =>  validarCPF(input)
     };
     if (validadoresEspecificos[tipo]) {
         validadoresEspecificos[tipo](input);

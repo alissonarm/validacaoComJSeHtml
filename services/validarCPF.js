@@ -59,7 +59,7 @@ export const validarCPF = input => {
     console.log(segundoDigitoCPF);
     
     if(segundoDigitoCPF ==! segundoDigitoCalculado){
-        input.setCustomValidity("Erro Cpf");
+        input.setCustomValidity("Erro CPF");
         return;
     }
 

@@ -1,6 +1,6 @@
 export const validarDataNascimento = input => {
 
-    alert('ola');
+    // alert('ola');
     const dataNascimento = new Date(input.value);
     const dataAtual = new Date();
 
